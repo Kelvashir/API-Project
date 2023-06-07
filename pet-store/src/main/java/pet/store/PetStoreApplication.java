@@ -11,7 +11,7 @@ public class PetStoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(PetStoreApplication.class);
-		app.setDefaultProperties(Collections.singletonMap("server.port", "8083"));
+		app.setDefaultProperties(Collections.singletonMap("server.port", "8081"));
 		app.run(args);
 
 	}
