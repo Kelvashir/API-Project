@@ -23,11 +23,12 @@ public class PetStore {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long petStoreId;
 	
+	private String petStoreName;
 	private String petStoreAddress;
 	private String petStoreCity;
 	private String petStoreState;
-	private Long petStoreZip;
-	private Long petStorePhone;
+	private String petStoreZip;
+	private String petStorePhone;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude

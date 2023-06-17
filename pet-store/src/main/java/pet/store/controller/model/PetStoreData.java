@@ -14,28 +14,30 @@ import pet.store.entity.PetStore;
 public class PetStoreData {
 
 	private Long petStoreId;
+	private String petStoreName;
 	private String petStoreAddress;
 	private String petStoreCity;
 	private String petStoreState;
-	private Long petStoreZip;
-	private Long petStorePhone;
+	private String petStoreZip;
+	private String petStorePhone;
 	private Set<PetStoreCustomer> customers = new HashSet<>();
 	private Set<PetStoreEmployee> employees = new HashSet<>();
 
 	public PetStoreData(PetStore petStore) {
-		petStoreId = petStore.getPetStoreId();
-		petStoreAddress = petStore.getPetStoreAddress();
-		petStoreCity = petStore.getPetStoreCity();
-		petStoreState = petStore.getPetStoreState();
-		petStoreZip = petStore.getPetStoreZip();
-		petStorePhone = petStore.getPetStorePhone();
+		this.petStoreId = petStore.getPetStoreId();
+		this.petStoreName = petStore.getPetStoreName();
+		this.petStoreAddress = petStore.getPetStoreAddress();
+		this.petStoreCity = petStore.getPetStoreCity();
+		this.petStoreState = petStore.getPetStoreState();
+		this.petStoreZip = petStore.getPetStoreZip();
+		this.petStorePhone = petStore.getPetStorePhone();
 
 		for (Customer customer : petStore.getCustomers()) {
-			customers.add(new PetStoreCustomer(customer));
+			this.customers.add(new PetStoreCustomer(customer));
 		}
 
 		for (Employee employee : petStore.getEmployees()) {
-			employees.add(new PetStoreEmployee(employee));
+			this.employees.add(new PetStoreEmployee(employee));
 		}
 	}
 
@@ -46,14 +48,15 @@ public class PetStoreData {
 		private String customerFirstName;
 		private String customerLastName;
 		private String customerEmail;
+		// private Set<PetStoreData> petStore = new HashSet<>();
 
-		PetStoreCustomer(Customer customer) {
-			customerId = customer.getCustomerId();
-			customerFirstName = customer.getCustomerFirstName();
-			customerLastName = customer.getCustomerLastName();
-			customerEmail = customer.getCustomerEmail();
+		public PetStoreCustomer(Customer customer) {
+			this.customerId = customer.getCustomerId();
+			this.customerFirstName = customer.getCustomerFirstName();
+			this.customerLastName = customer.getCustomerLastName();
+			this.customerEmail = customer.getCustomerEmail();
+
 		}
-
 	}
 
 	@Data
@@ -62,15 +65,15 @@ public class PetStoreData {
 		private Long employeeId;
 		private String employeeFirstName;
 		private String employeeLastName;
-		private Long employeePhone;
+		private String employeeEmail;
 		private String employeeJobTitle;
 
-		PetStoreEmployee(Employee employee) {
-			employeeId = employee.getEmployeeId();
-			employeeFirstName = employee.getEmployeeFirstName();
-			employeeLastName = employee.getEmployeeLastName();
-			employeePhone = employee.getEmployeePhone();
-			employeeJobTitle = employee.getEmployeeJobTitle();
+		public PetStoreEmployee(Employee employee) {
+			this.employeeId = employee.getEmployeeId();
+			this.employeeFirstName = employee.getEmployeeFirstName();
+			this.employeeLastName = employee.getEmployeeLastName();
+			this.employeeEmail = employee.getEmployeeEmail();
+			this.employeeJobTitle = employee.getEmployeeJobTitle();
 		}
 	}
 }
